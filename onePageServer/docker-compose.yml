@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+
+  one_page:
+    build: ./
+    image: ouvill/one_page
+    restart: always
+    container_name: one_page
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: production
+      NODE_PATH: /home/node/app
+      DB_USER: root
+      DB_NAME: one_page_db
+      DB_PASSWORD: HHkGzt9tUVUwKZT8rufgvHqq
+    volumes:
+      - ./:/home/node/app
+    ports:
+      - 8080:3000
+    links:
+      - mongodb_onepage:mysql
+    depends_on:
+      - mongodb_one_page
+    command: "npm install"
+
+  mongodb_one_page:
+    image: mysql
+    container_name: mongodb_one_page
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=HHkGzt9tUVUwKZT8rufgvHqq
+      - MYSQL_DATABASE=one_page_db
+    volumes:
+      - /var/docker/mongodb_one_page:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306

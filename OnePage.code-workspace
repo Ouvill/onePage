@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "onePageClient"
+		},
+		{
+			"path": "onePageServer"
+		}
+	],
+	"settings": {}
+}
