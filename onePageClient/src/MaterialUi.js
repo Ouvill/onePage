@@ -4,6 +4,7 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import App from './App';
+import Sample from './Sample'
 
 class MaterialUi extends Component {
 
@@ -26,7 +27,8 @@ class MaterialUi extends Component {
                     onLeftIconButtonClick={this.handleToggle}
                     />
 
-                <App />
+                <Sample />
+                {/* <App /> */}
 
                 <Drawer
                     docked={false}

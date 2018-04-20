@@ -25,6 +25,8 @@ services:
     ports:
       - 3000:3000
     command: "./entrypoint.sh"
+    links:
+      - one_page_server:node_server
 
   one_page_server:
     image: node
@@ -33,6 +35,8 @@ services:
     working_dir: /home/node/app
     volumes:
       - ./onePageServer:/home/node/app
+    ports:
+      - 3001:3000
     # links:
     #   - one_page_mongodb: db
     # depends_on:
