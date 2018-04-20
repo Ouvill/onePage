@@ -1,0 +1,40 @@
+version: '3'
+services:
+
+  nginx:
+    image: nginx
+    container_name: "one_page_nginx"
+    volumes:
+      - ./onePageClient/build/:/usr/share/nginx/html:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+    links:
+      - one_page_server:node_server
+    depends_on:
+      - "one_page_server"
+    ports:
+      - 80:80
+
+  one_page_client:
+    image: node
+    container_name: "one_page_client"
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./onePageClient:/home/node/app
+    ports:
+      - 3000:3000
+    command: "./entrypoint.sh"
+
+  one_page_server:
+    image: node
+    container_name: "one_page_server"
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./onePageServer:/home/node/app
+    # links:
+    #   - one_page_mongodb: db
+    # depends_on:
+    #   - one_page_mongodb
+    command: "./entrypoint.sh"
