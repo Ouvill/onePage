@@ -1,4 +1,5 @@
 #!/bin/bash
 
 npm install
-npm start
+# npm start
+npm run build
