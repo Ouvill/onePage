@@ -31,7 +31,7 @@ function Author(props) {
 
 function Text(props) {
   const line_list = props.text.split("\n")
-  const paragraphItem = line_list.map((item, index) => <span key={index}>{item}<br /></span>  )
+  const paragraphItem = line_list.map((item, index) => <span key={index}>{item}<br /></span>)
   return (
     <div className="text">
       {paragraphItem}
@@ -51,7 +51,7 @@ function Interface(props) {
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state = {  value: '' }
+    this.state = { value: '' }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -117,37 +117,37 @@ class App extends Component {
         view: true
       }
     });
- }
+  }
 
   render() {
-        return(
-      <div className = "App" >
-            <main>
-              <View class="left">
-                <Contents in={this.state.view} onExit={this.handleViewOff} backgroundImage={" https://flashgif.ouvill.net/images/backgrounds/" + this.state.poem[0].backgroundImage}>
-                  <Title title={this.state.poem[0].title} />
-                  <Author author={this.state.poem[0].author} />
-                  <Text text={this.state.poem[0].text} />
-                </Contents>
-              </View>
-              <View >
-                <Contents in={this.state.view} onExit={this.handleViewOff} backgroundImage={" https://flashgif.ouvill.net/images/backgrounds/"+this.state.poem[1].backgroundImage}>
-                  <Title title={this.state.poem[1].title} />
-                  <Author author={this.state.poem[1].author} />
-                  <Text text={this.state.poem[1].text} />
-                </Contents>
-              </View>
-              <View class="right">
-                <Contents in={this.state.view} onExit={this.handleViewOff} backgroundImage={" https://flashgif.ouvill.net/images/backgrounds/" + this.state.poem[2].backgroundImage}>
-                  <Title title={this.state.poem[2].title} />
-                  <Author author={this.state.poem[2].author} />
-                  <Text text={this.state.poem[2].text} />
-                </Contents>
-              </View>
-              <Interface handleNext={this.handleNextClick} />
-            </main>
-            <footer>
-            </footer>
+    return (
+      <div className="App" >
+        <main>
+          <View class="left">
+            <Contents in={this.state.view} onExit={this.handleViewOff} backgroundImage={process.env.PUBLIC_URL + "/images/backgrounds/" + this.state.poem[0].backgroundImage}>
+              <Title title={this.state.poem[0].title} />
+              <Author author={this.state.poem[0].author} />
+              <Text text={this.state.poem[0].text} />
+            </Contents>
+          </View>
+          <View >
+            <Contents in={this.state.view} onExit={this.handleViewOff} backgroundImage={process.env.PUBLIC_URL + "/images/backgrounds/" + this.state.poem[1].backgroundImage}>
+              <Title title={this.state.poem[1].title} />
+              <Author author={this.state.poem[1].author} />
+              <Text text={this.state.poem[1].text} />
+            </Contents>
+          </View>
+          <View class="right">
+            <Contents in={this.state.view} onExit={this.handleViewOff} backgroundImage={process.env.PUBLIC_URL + "/images/backgrounds/" + this.state.poem[2].backgroundImage}>
+              <Title title={this.state.poem[2].title} />
+              <Author author={this.state.poem[2].author} />
+              <Text text={this.state.poem[2].text} />
+            </Contents>
+          </View>
+          <Interface handleNext={this.handleNextClick} />
+        </main>
+        <footer>
+        </footer>
       </div>
     );
   }

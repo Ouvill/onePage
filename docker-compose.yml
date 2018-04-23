@@ -13,7 +13,7 @@ services:
     depends_on:
       - "one_page_server"
     ports:
-      - 80:80
+      - 8080:80
 
   one_page_client:
     image: node

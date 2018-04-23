@@ -28,7 +28,7 @@ class MaterialUi extends Component {
                     />
 
                 <Sample />
-                {/* <App /> */}
+                <App />
 
                 <Drawer
                     docked={false}
